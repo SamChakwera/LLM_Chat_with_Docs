@@ -15,9 +15,9 @@ def load_document(file):
         print(f'Loading {file}')
         loader = Docx2txtLoader(file)
     elif extension == '.txt':
-        from langchain.document_loaders import TxtLoader
+        from langchain.document_loaders import TextLoader
         print(f'Loading {file}')
-        loader = TxtLoader(file)
+        loader = TextLoader(file)
     else:
         print('Document format is not supported!')
         return None
