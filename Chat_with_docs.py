@@ -1,6 +1,6 @@
 import streamlit as st
 from langchain.embeddings.openai import OpenAIEmbeddings
-from langchain.vectorstores improt Chroma
+from langchain.vectorstores import Chroma
 from openai import OpenAI
 import os
 
