@@ -99,7 +99,7 @@ if q:
 st.divider()
 if 'history' not in st.session_state:
     st.session_state.history = ''
-value = f'Q: {q}\nA: {answer}\n\n'
-st.session_state.history = f'{value} \n {st.session_state.history}'
+value = f'Q: {q} n\A: {answer}'
+st.session_state.history = f'{value} {"-"*100} \n {st.session_state.history}'
 h = st.session_state.history
 st.text_area('History:', st.session_state.history, height=400)
