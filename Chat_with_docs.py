@@ -97,13 +97,13 @@ if q:
         vector_store = st.session_state.vs
         st.write('Searching for answer ...')
         answer = ask_and_get_answer(vector_store, q, k)    
-        st.text_area('LLM Answer:', value=answer, height=400)
+        st.text_area('LLM Answer:', value=answer, height=200)
 
 
 st.divider()
 if 'history' not in st.session_state:
     st.session_state.history = ''
-value = f'Your Question: {q} \n Answer: {answer}'
+value = f'Your Question:  {q} \nAnswer:  {answer}'
 st.session_state.history = f'{value} {"-"*100} \n {st.session_state.history}'
 h = st.session_state.history
 st.text_area('History:', st.session_state.history, height=400)
