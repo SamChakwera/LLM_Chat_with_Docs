@@ -1,7 +1,6 @@
 import streamlit as st
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
-from openai import OpenAI
 import os
 
 def load_document(file):
@@ -66,7 +65,7 @@ with st.sidebar:
         os.environ['OPENAI_API_KEY'] = api_key
 
     upload_file = st.file_uploader('Upload a document:', type=['pdf', 'docx', 'txt'])
-    chunk_size = st.number_input('Chunk Size:', value=256,min_value=100, max_value=2048, value=512)
+    chunk_size = st.number_input('Chunk Size:',min_value=100, max_value=2048, value=512)
     k=st.number_input('k', min_value=1, max_value=20, value=3)
     add_data = st.button('Add Data')
 
