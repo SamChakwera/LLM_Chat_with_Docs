@@ -69,4 +69,26 @@ with st.sidebar:
     k=st.number_input('k', min_value=1, max_value=20, value=3)
     add_data = st.button('Add Data')
 
+    if upload_file and add_data:
+        with st.spinner('Reading, chunking and embedding file ...'):
+            bytes_data = upload_file.read()
+            file_name = os.path.join('./', upload_file.name)
+            with open(file_name, 'wb') as f:
+                f.write(bytes_data)
+
+                data=load_document(file_name)
+                chunks = chunk_data(data, chunk_size=chunk_size)
+                st.write(f'Chunk size: {chunk_size},Number of chunks: {len(chunks)}')
+                tokens, embbeding_cost = calculate_embedding_cost(chunks)
+                st.write(f'Embedding Cost in USD: {embbeding_cost:.4f}')
+
+                vector_store = create_embeddings(chunks)
+
+                st.session_state.vs = vector_store
+                st.success('File uploaded,chunked and embedded successfully!')
+
+
+
+            
+
 
