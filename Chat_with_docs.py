@@ -52,6 +52,10 @@ def calculate_embedding_cost(texts):
     #print(f'Embedding Cost in USD: {total_tokens / 1000 * 0.0004:.6f}')
     return total_tokens, total_tokens / 1000 * 0.0004
 
+def clear_history():
+    if 'history' in st.session_state:
+        del st.session_state['history']
+
 if __name__ == "__main__":
     import os
     from dotenv import load_dotenv, find_dotenv
@@ -65,9 +69,9 @@ with st.sidebar:
         os.environ['OPENAI_API_KEY'] = api_key
 
     upload_file = st.file_uploader('Upload a document:', type=['pdf', 'docx', 'txt'])
-    chunk_size = st.number_input('Chunk Size:',min_value=100, max_value=2048, value=512)
-    k=st.number_input('k', min_value=1, max_value=20, value=3)
-    add_data = st.button('Add Data')
+    chunk_size = st.number_input('Chunk Size:',min_value=100, max_value=2048, value=512, on_change=clear_history)
+    k=st.number_input('k', min_value=1, max_value=20, value=3, on_change=clear_history)
+    add_data = st.button('Add Data', on_click=clear_history)
 
     if upload_file and add_data:
         with st.spinner('Reading, chunking and embedding file ...'):
@@ -99,7 +103,7 @@ if q:
 st.divider()
 if 'history' not in st.session_state:
     st.session_state.history = ''
-value = f'Q: {q} n\A: {answer}'
+value = f'Your Question: {q} n\ Answer: {answer}'
 st.session_state.history = f'{value} {"-"*100} \n {st.session_state.history}'
 h = st.session_state.history
 st.text_area('History:', st.session_state.history, height=400)
