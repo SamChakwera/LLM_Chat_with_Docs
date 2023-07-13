@@ -93,7 +93,7 @@ if q:
         vector_store = st.session_state.vs
         st.write('Searching for answer ...')
         answer = ask_and_get_answer(vector_store, q, k)    
-        st.text_area('LLM Answer:', answer, height=400)
+        st.text_area('LLM Answer:', value=answer, height=400)
 
 
 st.divider()
