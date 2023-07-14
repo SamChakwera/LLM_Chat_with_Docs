@@ -62,7 +62,7 @@ if __name__ == "__main__":
            '''
     im = Image.open("icons8-bot-64.png")
     st.markdown(hide_default_format, unsafe_allow_html=True)
-    st.set_page_config(page_title="LLM QA Chatbot", page_icon=im)
+    st.set_page_config(page_title="LLM QA Chatbot")
 
     st.image('img.png', width=300)
     st.subheader('LLM QA Chatbot')
