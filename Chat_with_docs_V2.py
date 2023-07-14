@@ -8,6 +8,7 @@ from langchain.document_loaders import PyPDFLoader, Docx2txtLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
+from PIL import Image
 
 def load_document(file):
     """Load document from file based on its extension."""
@@ -59,8 +60,9 @@ if __name__ == "__main__":
            footer {visibility: hidden;}
            </style>
            '''
+    im = Image.open("https://icons8.com/icon/ErmeMIUGMycn/bot")
     st.markdown(hide_default_format, unsafe_allow_html=True)
-    st.set_page_config(page_title="LLM QA Chatbot", page_icon=":robot:")
+    st.set_page_config(page_title="LLM QA Chatbot", page_icon=im)
 
     st.image('img.png', width=300)
     st.subheader('LLM QA Chatbot')
@@ -108,3 +110,10 @@ if __name__ == "__main__":
         value = f'Your Question:  {q} \nAnswer:  {answer}'
         st.session_state.history = f'{value} {"-"*100} \n {st.session_state.history}'
     st.text_area('History:', st.session_state.history, height=400)
+
+st.markdown(
+    '''<footer>
+    Created by <a href="https://stchakwera.netlify.app/">Samuel Chakwera</a>
+    </footer>''',
+    unsafe_allow_html=True
+)
