@@ -60,7 +60,7 @@ if __name__ == "__main__":
            footer {visibility: hidden;}
            </style>
            '''
-    im = Image.open("https://icons8.com/icon/ErmeMIUGMycn/bot")
+    im = Image.open(icons8-bot-64.png)
     st.markdown(hide_default_format, unsafe_allow_html=True)
     st.set_page_config(page_title="LLM QA Chatbot", page_icon=im)
 
