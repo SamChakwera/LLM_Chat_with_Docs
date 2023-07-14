@@ -61,6 +61,16 @@ if __name__ == "__main__":
     from dotenv import load_dotenv, find_dotenv
     load_dotenv(find_dotenv(),override=True)
 
+
+hide_default_format = """
+       <style>
+       #MainMenu {visibility: hidden; }
+       footer {visibility: hidden;}
+       </style>
+       """
+st.markdown(hide_default_format, unsafe_allow_html=True)
+st.set_page_config(page_title="LLM QA Chatbot", page_icon=":robot:")
+
 st.image('img.png', width=300)
 st.subheader('LLM QA Chatbot')
 with st.sidebar:
