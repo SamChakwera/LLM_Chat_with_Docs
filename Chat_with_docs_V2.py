@@ -8,8 +8,6 @@ from langchain.document_loaders import PyPDFLoader, Docx2txtLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains import RetrievalQA
 from langchain.chat_models import ChatOpenAI
-import tiktoken
-from tiktoken.encoding_for_model import encoding_for_model
 
 def load_document(file):
     """Load document from file based on its extension."""
@@ -42,7 +40,8 @@ def ask_and_get_answer(vector_store, q, k=3):
 
 def calculate_embedding_cost(texts):
     """Calculate the embedding cost."""
-    enc = encoding_for_model('text-embedding-ada-002')
+    import tiktoken
+    enc = tiktoken.encoding_for_model('text-embedding-ada-002')
     total_tokens = sum([len(enc.encode(page.page_content)) for page in texts])
     return total_tokens, total_tokens / 1000 * 0.0004
 
