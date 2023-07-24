@@ -34,7 +34,7 @@ def create_embeddings(chunks):
 
 def ask_and_get_answer(vector_store, q, k=3):
     """Ask a question and get answer."""
-    llm = ChatOpenAI(model='gpt-3.5-turbo', temperature=1)
+    llm = ChatOpenAI(model='gpt-4', temperature=1)
     retriever = vector_store.as_retriever(search_type='similarity', search_kwargs={'k':k})
     chain = RetrievalQA.from_chain_type(llm=llm, chain_type="stuff", retriever=retriever)
     return chain.run(q)
