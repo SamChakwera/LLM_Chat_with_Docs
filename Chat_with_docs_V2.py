@@ -64,7 +64,7 @@ if __name__ == "__main__":
     st.markdown(hide_default_format, unsafe_allow_html=True)
 
     st.image('img.png', width=300)
-    st.subheader('LLM QA Chatbot')
+    st.subheader('LLM QA Chatbot by Samuel Chakwera')
     with st.sidebar:
         api_key = st.text_input('OpenAI API Key:', type='password')
         if api_key:
