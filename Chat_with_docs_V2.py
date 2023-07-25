@@ -112,7 +112,7 @@ if __name__ == "__main__":
 
 st.markdown(
     '''<footer>
-    Created by <a href="https://stchakwera.netlify.app/">Samuel Chakwera</a>
+    Created by <a href="https://stchakwera.com/">Samuel Chakwera</a>
     </footer>''',
     unsafe_allow_html=True
 )
