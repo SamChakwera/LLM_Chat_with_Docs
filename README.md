@@ -30,7 +30,7 @@ A Streamlit-based web application that allows users to upload documents (in PDF,
 
 4. Run the Streamlit app:
     ```bash
-    streamlit run Chat_with_docs_improved_with_footer.py
+    streamlit run Chat_with_docs_V2r.py 
     ```
 
 ## Usage:
