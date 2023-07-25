@@ -1,5 +1,5 @@
 
-# LLM QA Chatbot
+# LLM Question and Answer Chatbot
 
 A Streamlit-based web application that allows users to upload documents (in PDF, DOCX, or TXT format) and ask questions related to the content of those documents. The application retrieves answers from the uploaded documents using OpenAI's powerful language models.
 
@@ -51,4 +51,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Credits:
 
-Created by [Samuel Chakwera](https://stchakwera.netlify.app/).
+Created by [Samuel Chakwera](https://stchakwera.com/).
